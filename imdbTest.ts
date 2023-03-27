@@ -1,6 +1,8 @@
 import { Movie } from "./movie";
 import { Professional } from "./professional";
 import { Imdb } from "./Imdb";
+import { writeFileSync } from "fs";
+
 
 let professional1: Professional = new Professional("Michelle Pfeiffer",64,55,1.68,true,"claiforniana",2,"actriz");
 let professional2: Professional = new Professional("Mario Casas",36,75,1.82,false,"española",0,"actor");
@@ -26,4 +28,9 @@ let imdb: Movie[];
 imdb = [pelicula,pelicula, pelicula];
 
 console.log(imdb);
+
+let imdbJSON: string = JSON.stringify(imdb);
+//console.log(imdbJSON);
+
+writeFileSync("imdbBBDD.json",imdbJSON);
 
