@@ -1,7 +1,7 @@
 import { Movie } from "./movie";
 import { Professional } from "./professional";
 import { Imdb } from "./Imdb";
-import { writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 
 
 let professional1: Professional = new Professional("Michelle Pfeiffer",64,55,1.68,true,"claiforniana",2,"actriz");
@@ -24,13 +24,34 @@ pelicula.mainCharacterName = "Frodo Bolson";
 pelicula.producer = "Nombre productor";
 pelicula.distributor = "Nombre distribuidor";
 
-let imdb: Movie[];
-imdb = [pelicula,pelicula, pelicula];
+let pelicula1: Movie;
+pelicula1 = new Movie ("Piratas del Caribe",2005,"estadounidense","fantasía");
+pelicula1.actors = actores;
+pelicula1.director = professional4;
+pelicula1.writer = professional3;
+pelicula1.language = "español";
+pelicula1.plataforma = "Amazon Prime";
+pelicula1.isMCU = true;
+pelicula1.mainCharacterName = "Frodo Bolson";
+pelicula1.producer = "Nombre productor";
+pelicula1.distributor = "Nombre distribuidor";
 
-console.log(imdb);
+let imdb: Imdb = new Imdb([pelicula,pelicula1, pelicula]);
 
 let imdbJSON: string = JSON.stringify(imdb);
-//console.log(imdbJSON);
 
 writeFileSync("imdbBBDD.json",imdbJSON);
+
+let imdbJSONread = JSON.parse(readFileSync("imdbBBDD.json").toString());
+
+imdb.escribirEnFicheroJSON("newImdbBBDD.json");
+
+let instanciaImdb: Imdb = new Imdb([]);
+
+console.log(instanciaImdb.obtenerInstanciaIMDB("newImdbBBDD.json"));
+
+
+
+
+
 
