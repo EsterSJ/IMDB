@@ -33,7 +33,7 @@ if (instanciaficheroJSON.peliculas.length != 0){
         }
     }
 }
-
-let imdbModificado: Imdb = new Imdb(instanciaficheroJSON.peliculas);
-imdbModificado.escribirEnFicheroJSON("imdbBBDD.json");
+instanciaficheroJSON.escribirEnFicheroJSON("imdbBBDD.json");
+// let imdbModificado: Imdb = new Imdb(instanciaficheroJSON.peliculas);
+// imdbModificado.escribirEnFicheroJSON("imdbBBDD.json");
 

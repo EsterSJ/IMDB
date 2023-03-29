@@ -15,7 +15,9 @@ class Imdb{
 
     public obtenerInstanciaIMDB(nombreFichero:string): Imdb{
         let newImdb: Imdb = new Imdb([]);
-        newImdb = JSON.parse(readFileSync("imdbBBDD.json").toString());
+        newImdb.peliculas = JSON.parse(readFileSync("imdbBBDD.json").toString()).peliculas;
+        console.log(typeof newImdb);
+        
         return newImdb;
     }
 }
